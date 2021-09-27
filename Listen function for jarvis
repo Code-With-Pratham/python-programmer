@@ -1,0 +1,25 @@
+#pip install speech recognition
+import speech_recognition as sr
+
+def Listen():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listerning...........")
+        audio = r.listen(source,0,4)#now it will listern only for 4 sec
+        #let include speak function in it
+
+    try:
+        print("Recognizing....")
+        query = r.recognize_google(audio,language="en-in")
+        print(f"user said:{query}\n")
+
+    except Exception as e:
+        print("say that again please")
+        query =  None
+
+    return query
+
+    #we have made it let's try it
+    #it's taking to much time because of background noices let's fix it
+
+#sorry u have remove all call function 
